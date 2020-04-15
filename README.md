@@ -13,7 +13,7 @@ The module challenge is the afternoon project or assignment that students work t
 - write a basic for loop / while loop.
 - write control flow using if/else statements.
 - use function declarations, expressions, and arrow
-functions and describe their differences
+functions and describe their differencesd
   
 ## Introduction
 
