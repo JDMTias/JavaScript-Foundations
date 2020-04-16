@@ -128,8 +128,33 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+function variableInterestRate( name, p, i, years, creditScore) {
+    if (creditScore > 740) {
+        i = i-.005
+        
+    } else if (creditScore < 660) {
+        i = i+.005
+        
+    } else {
+        i = i
+    } 
+    const monthlyInterestRate = i / 12;
+    const n = years * 12;
+    const numerator = monthlyInterestRate* ( Math.pow((1+monthlyInterestRate),n));
+    const denominator = (Math.pow((1+monthlyInterestRate),n))-1;
+    let monthlyRate = p * (numerator/denominator);
+    monthlyRate = monthlyRate.toFixed(2);
+
+    for (x = i;  x < 10; x++) {
+        i = i += 0.005;
+    }
+ds
+    return  `${name}, with an interest of ${i}, your monthly rate is, $${monthlyRate}`
+    
+}
 
 
+console.log(variableInterestRate( "matias", 200000, 0.05, 30, 700))
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
