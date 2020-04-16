@@ -138,18 +138,20 @@ function variableInterestRate( name, p, i, years, creditScore) {
     } else {
         i = i
     } 
-    const monthlyInterestRate = i / 12;
     const n = years * 12;
-    const numerator = monthlyInterestRate* ( Math.pow((1+monthlyInterestRate),n));
-    const denominator = (Math.pow((1+monthlyInterestRate),n))-1;
-    let monthlyRate = p * (numerator/denominator);
-    monthlyRate = monthlyRate.toFixed(2);
+    i = i-0.02
+    for (x = 0; x < 10; x++){
 
-    for (x = i;  x < 10; x++) {
-        i = i += 0.005;
+        const monthlyInterestRate = i / 12;
+        const numerator = monthlyInterestRate* ( Math.pow((1+monthlyInterestRate),n));
+        const denominator = (Math.pow((1+monthlyInterestRate),n))-1;
+        let monthlyRate = p * (numerator/denominator);
+        monthlyRate = monthlyRate.toFixed(2);
+ 
+        console.log( `${name}, with an interest of ${i}, your monthly rate is, $${monthlyRate}`)
+
+        i += 0.005
     }
-ds
-    return  `${name}, with an interest of ${i}, your monthly rate is, $${monthlyRate}`
     
 }
 
